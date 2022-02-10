@@ -1,0 +1,18 @@
+apiVersion: kpt.dev/v1
+kind: Kptfile
+metadata:
+  name: mysql
+upstream:
+  type: git
+  git:
+    repo: https://github.com/kubernetes/website
+    directory: /content/en/examples/application/mysql
+    ref: snapshot-initial-v1.20
+  updateStrategy: resource-merge
+upstreamLock:
+  type: git
+  git:
+    repo: https://github.com/kubernetes/website
+    directory: /content/en/examples/application/mysql
+    ref: snapshot-initial-v1.20
+    commit: 0fc0a96642dd7aa839ed4cdf06eef808f55339ed
